@@ -1,9 +1,12 @@
+<div align="center">
+
 # Awesome Joint Online-Offline Fine-tuning
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![IJCAI 2026](https://img.shields.io/badge/IJCAI-2026%20Survey%20Track-blue)](https://ijcai.org/)
 
-
+</div>
+  
 Joint online-offline fine-tuning studies how **offline expert priors** and **online policy rollouts** can be optimized together, rather than being isolated into the standard `SFT -> RFT` post-training pipeline. The central question is:
 
 > How can offline stability and online adaptability be unified?
