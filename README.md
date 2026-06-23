@@ -34,6 +34,8 @@ Our survey organizes the literature by **how offline and online data streams are
 | Joint HFT | SFT and RFT objectives are co-activated in a single training loop. | Balancing discontinuous supervised and reinforcement signals. |
 | Joint AFT | SFT and RFT are adaptively scheduled using online training signals. | Heterogeneous data with varying difficulty and knowledge coverage. |
 
+![](main.png)
+
 ## Joint Online-Offline SFT
 
 Joint SFT keeps the supervised learning interface but changes the construction or interpretation of supervision through online/self-generated signals.
