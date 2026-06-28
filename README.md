@@ -122,11 +122,3 @@ Joint AFT treats SFT and RFT as complementary gradient sources and uses online t
 | HPT | [Towards a unified view of large language model post-training](https://arxiv.org/abs/2509.04419) | Dynamically switches between offline SFT and online RFT using online reward feedback. | SFT+GRPO | OpenR1-Math-46k-8192 | Qwen2.5-Math, LLaMA3.1 |
 | SASR | [Step-wise adaptive integration of supervised fine-tuning and reinforcement learning for task-specific LLMs](https://arxiv.org/abs/2505.13026) | Schedules SFT and RFT using gradient-level training indicators. | SFT+GRPO | GSM8K, MATH, KK | Qwen2.5, DeepSeek-R1-Distill-Qwen |
 
-## Applications
-
-| Domain | Method | Paper | Joint paradigm | Main idea |
-| --- | --- | --- | --- | --- |
-| Multimodal reasoning | DyME | [Empowering small VLMs to think with dynamic memorization and exploration](https://arxiv.org/abs/2506.23061) | Joint AFT | Triggers SFT updates when VLM rollouts fail to obtain positive rewards. |
-| Mental health reasoning | MentraSuite | [MentraSuite: Post-Training Large Language Models for Mental Health Reasoning and Assessment](https://arxiv.org/abs/2512.09636) | Joint HFT | Enforces clinical consistency across diagnosis and intervention tasks. |
-| E-commerce search relevance | TaoSR-AGRL | TaoSR-AGRL: Adaptive Guided Reinforcement Learning Framework for E-commerce Search Relevance, WWW 2026 | Joint RFT | Uses adaptive guided replay from offline trajectories when online exploration stagnates. |
-
