@@ -39,11 +39,11 @@ Our survey organizes the literature by **how offline and online data streams are
 
 ![](main.png)
 
-## Joint Online-Offline SFT
+### Joint Online-Offline SFT
 
 Joint SFT keeps the supervised learning interface but changes the construction or interpretation of supervision through online/self-generated signals.
 
-### Data-Shaped SFT
+#### Data-Shaped SFT
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
@@ -51,7 +51,7 @@ Joint SFT keeps the supervised learning interface but changes the construction o
 | S3FT | Selective self-to-supervised fine-tuning for generalization in large language models, NAACL 2025 | Selectively replaces expert responses when self-generated responses are judged equivalent. | SFT | GSM8K, MBPP, NQ | Mistral-Instruct-v2 |
 | JSFT | Aligning large language models by on-policy self-judgment, ACL 2024 | Uses the model as a judge to compare offline data and online rollouts for SFT. | SFT+DPO | Anthropic-HH, UltraFeedback | LLaMA2 |
 
-### RL-Shaped SFT
+#### RL-Shaped SFT
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
@@ -59,11 +59,11 @@ Joint SFT keeps the supervised learning interface but changes the construction o
 | SRL | [Supervised reinforcement learning: From expert trajectories to step-wise reasoning](https://arxiv.org/abs/2510.25992) | Provides smoother step-wise rewards based on similarity between model and expert actions. | Step-wise supervision | s1K-1.1 | Qwen2.5 |
 | RFT / IRFT | Getting more juice out of the SFT data: Reward learning from human demonstration improves SFT for LLM alignment, NeurIPS 2024 | Learns rewards from demonstrations and contrasts them with model self-generations. | Reward learning | Anthropic-HH, Ultrachat200k | pythia, zephyr |
 
-## Joint Online-Offline RFT
+### Joint Online-Offline RFT
 
 Joint RFT keeps online reinforcement fine-tuning as the main driver while inserting offline priors into the rollout process at different granularities.
 
-### Trajectory Substitution
+#### Trajectory Substitution
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
@@ -71,7 +71,7 @@ Joint RFT keeps online reinforcement fine-tuning as the main driver while insert
 | RL-PLUS | [RL-PLUS: Countering capability boundary collapse of LLMs in reinforcement learning with hybrid-policy optimization](https://arxiv.org/abs/2508.00222) | Refines off-policy guidance with multiple importance sampling and exploration-based advantages. | GRPO | OpenR1-Math-220k | Qwen2.5, LLaMA3.1, DeepSeek-Math |
 | AMPO | [More Than One Teacher: Adaptive Multi-Guidance Policy Optimization for Diverse Exploration](https://arxiv.org/abs/2510.02227) | Dynamically combines multiple expert teachers according to online reward signals. | GRPO | OpenR1-Math-46k-8192 | Qwen2.5, LLaMA3.2 |
 
-### Prefix Hint
+#### Prefix Hint
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
@@ -80,23 +80,23 @@ Joint RFT keeps online reinforcement fine-tuning as the main driver while insert
 | BREAD | [BREAD: Branched rollouts from expert anchors bridge SFT and RL for reasoning](https://arxiv.org/abs/2506.17211) | Branches rollouts from expert anchors when self-generated traces fail. | GRPO | NuminaMath-CoT | Qwen2.5 |
 | StepHint | [StepHint: Multi-level stepwise hints enhance reinforcement learning to reason](https://arxiv.org/abs/2507.02841) | Provides multi-level step-wise hints based on reasoning trajectory segmentation. | GRPO | DAPO-Math-17K, DeepMath | Qwen2.5 |
 
-### Token Substitution
+#### Token Substitution
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
 | MENTOR | Selective Expert Guidance for Effective and Diverse Exploration in Reinforcement Learning of LLMs, ICLR 2026 | Corrects selected tokens during rollout when the policy diverges from an expert distribution. | GRPO | MATH, OpenR1-Math-220k | Qwen2.5, LLaMA3.1 |
 
-### Contextual Hint
+#### Contextual Hint
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
 | ICPO | [Think Outside the Policy: In-Context Steered Policy Optimization](https://arxiv.org/abs/2510.26519) | Uses offline expert responses as in-context examples to steer online policy optimization. | GRPO | OpenR1-Math-220k, Skywork-OR1-RL-Data | Qwen3 |
 
-## Joint Online-Offline HFT
+###  Joint Online-Offline HFT
 
 Joint HFT co-activates supervised and reinforcement objectives in the same training loop. The key challenge is learning or scheduling the balance between imitation and exploration.
 
-### Explicit Fusion
+#### Explicit Fusion
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
@@ -106,14 +106,14 @@ Joint HFT co-activates supervised and reinforcement objectives in the same train
 | CHORD | On-Policy RL Meets Off-Policy Experts: Harmonizing Supervised Fine-Tuning and Reinforcement Learning via Dynamic Weighting, ICLR 2026 | Reframes SFT as a dynamically weighted auxiliary objective inside RL. | SFT+GRPO | OpenR1-Math-220k | Qwen2.5 |
 | SRFT | [SRFT: A single-stage method with supervised and reinforcement fine-tuning for reasoning](https://arxiv.org/abs/2506.19767) | Uses offline data for both SFT and RFT with entropy-aware weighting. | SFT+GRPO | OpenR1-Math-46k-8192 | Qwen2.5-Math |
 
-### Implicit Fusion
+#### Implicit Fusion
 
 | Method | Paper | Main idea | Objective | Datasets | Models |
 | --- | --- | --- | --- | --- | --- |
 | UFT | [UFT: Unifying supervised and reinforcement fine-tuning](https://arxiv.org/abs/2505.16984) | Appends partial expert reasoning as hint prefixes and incorporates prefix likelihood into RL. | SFT+GRPO | Countdown, MATH, Logic | Qwen2.5, LLaMA3.2 |
 | SEELE | [Staying in the Sweet Spot: Responsive Reasoning Evolution via Capability-Adaptive Hint Scaffolding](https://arxiv.org/abs/2509.06923) | Dynamically adjusts solution-prefix length to maintain suitable training difficulty. | SFT+GRPO | DeepMath-103K | Qwen2.5 |
 
-## Joint Online-Offline AFT
+### Joint Online-Offline AFT
 
 Joint AFT treats SFT and RFT as complementary gradient sources and uses online training signals to decide when supervised intervention is needed.
 
@@ -122,3 +122,22 @@ Joint AFT treats SFT and RFT as complementary gradient sources and uses online t
 | HPT | [Towards a unified view of large language model post-training](https://arxiv.org/abs/2509.04419) | Dynamically switches between offline SFT and online RFT using online reward feedback. | SFT+GRPO | OpenR1-Math-46k-8192 | Qwen2.5-Math, LLaMA3.1 |
 | SASR | [Step-wise adaptive integration of supervised fine-tuning and reinforcement learning for task-specific LLMs](https://arxiv.org/abs/2505.13026) | Schedules SFT and RFT using gradient-level training indicators. | SFT+GRPO | GSM8K, MATH, KK | Qwen2.5, DeepSeek-R1-Distill-Qwen |
 
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@inproceedings{ijcai2026p899,
+  title     = {A Survey of Joint Online-Offline Fine-tuning for Large Language Models},
+  author    = {Zhen, Taihang and Yang, Guang and Li, Chenzhang and Yan, Nuo and Zhou, Shilong and Liu, Guangyu and Tang, Xiaotong and Huo, Jing and Wang, Boyan and Feng, Junlan and Zhang, Yuyao},
+  booktitle = {Proceedings of the Thirty-Fifth International Joint Conference on
+               Artificial Intelligence, {IJCAI-26}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {Diego Calvanese},
+  pages     = {8106--8115},
+  year      = {2026},
+  month     = {8},
+  note      = {Survey Track},
+  doi       = {10.24963/ijcai.2026/899},
+  url       = {https://doi.org/10.24963/ijcai.2026/899},
+}
