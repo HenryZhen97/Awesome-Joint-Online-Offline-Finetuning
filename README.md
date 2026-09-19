@@ -11,10 +11,6 @@ Joint online-offline fine-tuning studies how **offline expert priors** and **onl
 
 > How can offline stability and online adaptability be unified?
 
-## News
-
-- `2026-04`: Our survey was accepted to the **IJCAI 2026 Survey Track**.
-
 
 ## Contents
 
